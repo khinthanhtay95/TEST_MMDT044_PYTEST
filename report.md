@@ -10,35 +10,35 @@
 ---
 
 ## Student Information
-- **Name:** [Write your Name here]
-- **MMDT ID:** [Write your MMDT ID here]
+- **Name:** Khin Than Htay
+- **MMDT ID:** MMDT044
 
 ---
 
 ## Section 1: Test Suite Configuration
-- **Pytest Version & Framework:** [Write your Pytest version and test environment here, e.g., Pytest 7.4.0 with pytest-cov]
-- **Total Test Cases Written:** [Write total number of test cases implemented across all test files]
-- **Measured Code Coverage (%):** [Write your measured test coverage percentage here, e.g., 95%]
-- **Key Fixtures Implemented:** [Describe key fixtures implemented in conftest.py, e.g., sample_student, empty_manager, populated_manager, valid_registration_data]
+- **Pytest Version & Framework:** Pytest-9.1.1 with pytest-cov-7.1.0, Python 3.14.2
+- **Total Test Cases Written:** 396 test cases from 116 test functions expanded with @pytest.mark.parametrize. 128 test cases in test_calculator.py (28 functions), 150 test cases in test_data_validator.py (28 functions) and 118 test cases in test_student_manager.py (60 function). All 396 test cases pass on the reference src/ code.
+- **Measured Code Coverage (%):** 100% 
+- **Key Fixtures Implemented:** sample_student: added one valid student, ID S001, with no grades, empty_manager: a fresh StudentManager with no students, populated_manager: built on empty_manager and added 4 students with different GPA scores, valid_registration_data: a registration dict that passes every validator, expected_gpas: the expected GPA for each populated student to avoid magic numbers for tests
 
 ---
 
 ## Section 2: Test Case Design & Boundary Analysis
-- **Calculator Boundary & Edge Cases:** [Describe calculator boundary conditions tested, e.g., empty lists, single items, negative numbers, 0 and 1 prime edge cases, float scores]
-- **Validator Exception Scenarios:** [Describe data validator exception testing, e.g., missing fields, weak passwords, invalid domains, out-of-range ages]
-- **Student Manager State Transitions:** [Describe state mutation and CRUD testing, e.g., student addition, duplicate ID rejection, grade updates, GPA recalculation, student deletion]
+- **Calculator Boundary & Edge Cases:** empty lists and tuples, single items, negative numbers,0 and 1 prime edge cases, float scores, score bounds 0 and 100, out-of-range scores, duplicate maximums, squares of primes, large primes, 0! and negative factorials, zero and negative exponents, zero to a negative power, boolean and non-numeric types
+- **Validator Exception Scenarios:** missing fields, weak passwords, invalid domains, missing top-level domain, consecutive dots, whitespace in email and password, password length limits, missing uppercase, lowercase, digit or special character, username length and format, out-of-range, ages, non-string and non-dict inputs, boolean ages
+- **Student Manager State Transitions:** student addition, duplicate ID rejection, invalid student details, grade updates, out-of-range grades, GPA bracket boundaries, GPA recalculation, empty GPA, student lookup, student deletion, removing unknown students, top performers ranking, minimum GPA filtering, full add-to-remove lifecycle
 
 ---
 
 ## Section 3: Local Verification & Feature Checklist
 *Check the test modules and features you successfully implemented and verified locally by placing an `x` in the brackets (e.g., `[x]`):*
-- [ ] Module 1: Calculator Unit Tests with Boundary & Type Assertions (`test_calculator.py`)
-- [ ] Parameterized Testing with `@pytest.mark.parametrize` for Multiple Input Scenarios
-- [ ] Module 2: Data Validator Tests with Custom Exception Assertions (`pytest.raises`)
-- [ ] Module 3: Student Management System Tests with State Mutation & CRUD Verification
-- [ ] Reusable Pytest Fixtures in `conftest.py` for Modular Test Setup
-- [ ] Mutation Testing & Bug Detection Verification (Catching Hidden Mutants)
-- [ ] Code Coverage Analysis with `pytest-cov` (>= 85% Coverage)
+- [x] Module 1: Calculator Unit Tests with Boundary & Type Assertions (`test_calculator.py`)
+- [x] Parameterized Testing with `@pytest.mark.parametrize` for Multiple Input Scenarios
+- [x] Module 2: Data Validator Tests with Custom Exception Assertions (`pytest.raises`)
+- [x] Module 3: Student Management System Tests with State Mutation & CRUD Verification
+- [x] Reusable Pytest Fixtures in `conftest.py` for Modular Test Setup
+- [x] Mutation Testing & Bug Detection Verification (Catching Hidden Mutants)
+- [x] Code Coverage Analysis with `pytest-cov` (>= 85% Coverage)
 
 ---
 
